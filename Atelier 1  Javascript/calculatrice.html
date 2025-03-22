@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <br>
+    <input type="radio" name="operation" value="add"> Addition
+    <input type="radio" name="operation" value="subtract"> Soustraction
+    <input type="radio" name="operation" value="multiply"> Multiplication
+    <input type="radio" name="operation" value="divide"> Division
+    <br>
+    <button onclick="calculer()">Calculer</button>
+    <div id="result"></div>
+
+    <script>
+        function calculer() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operation = document.querySelector('input[name="operation"]:checked').value;
+            let result;
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Erreur";
+            }
+
+            document.getElementById("result").innerText = "Résultat: " + result;
+        }
+    </script>
+</body>
+</html>
